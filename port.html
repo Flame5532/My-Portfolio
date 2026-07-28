@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ismail Abbas — Web Designer</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1B2430;
+    --paper: #F1EEE7;
+    --teal: #2E6E62;
+    --sand: #E8B76B;
+    --line: rgba(27,36,48,0.12);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .display-font { font-family: 'Space Grotesk', sans-serif; }
+  .mono-font { font-family: 'JetBrains Mono', monospace; }
+
+  a { text-decoration: none; }
+
+  /* ---------- NAV ---------- */
+  .navbar-custom {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar-brand.display-font {
+    font-weight: 700;
+    color: var(--ink) !important;
+  }
+
+  .navbar-brand span { color: var(--teal); }
+
+  .nav-link-custom {
+    color: var(--ink) !important;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .nav-link-custom:hover { color: var(--teal) !important; }
+
+  .btn-teal {
+    background: var(--teal);
+    color: var(--paper) !important;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-teal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -8px rgba(47,110,98,0.5);
+    color: var(--paper);
+  }
+
+  .btn-outline-teal {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 100px;
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .btn-outline-teal:hover { border-color: var(--teal); color: var(--ink); }
+
+  /* ---------- HERO ---------- */
+  .hero-section { padding: 90px 0 80px; border-bottom: 1px solid var(--line); }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--sand);
+    margin-right: 8px;
+  }
+
+  h1.hero-title {
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  }
+
+  h1.hero-title em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-avatar {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--teal), #1d4b43);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-weight: 700;
+    font-size: 3rem;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px -25px rgba(47,110,98,0.5);
+    position: relative;
+  }
+  /* To use a real photo instead of initials, replace "IA" with:
+     <img src="your-photo.jpg" class="w-100 h-100" style="object-fit:cover; border-radius:50%;"> */
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+
+  .section-eyebrow {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(27,36,48,0.5);
+  }
+
+  .section-title {
+    font-weight: 600;
+    font-size: 1.9rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-text { color: rgba(27,36,48,0.75); font-size: 1.05rem; max-width: 60ch; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    background: #fff;
+  }
+
+  .skill-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--sand);
+  }
+
+  .skill-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 6px 0 8px;
+  }
+
+  .skill-card p { font-size: 0.9rem; color: rgba(27,36,48,0.65); margin: 0; }
+
+  /* ---------- PROJECTS ---------- */
+  .project-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    height: 100%;
+    transition: transform 0.15s ease;
+  }
+
+  .project-card:hover { transform: translateY(-4px); }
+
+  .project-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .project-thumb.thumb-1 { background: linear-gradient(135deg, #C33A2C, #7d251c); }
+  .project-thumb.thumb-2 { background: linear-gradient(135deg, var(--teal), #1d4b43); }
+  .project-thumb.thumb-3 { background: linear-gradient(135deg, var(--sand), #b3812f); }
+
+  .project-body { padding: 20px; }
+
+  .project-body h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .project-body p { font-size: 0.88rem; color: rgba(27,36,48,0.6); margin-bottom: 14px; }
+
+  .project-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 4px 10px;
+    color: rgba(27,36,48,0.65);
+    margin-right: 6px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px;
+    background: #fff;
+    height: 100%;
+  }
+
+  .testimonial-quote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(27,36,48,0.55);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-section { border-bottom: none; text-align: center; padding-bottom: 90px; }
+
+  .contact-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    max-width: 22ch;
+    margin: 0 auto 14px;
+  }
+
+  .contact-section p { color: rgba(27,36,48,0.65); max-width: 42ch; margin: 0 auto 28px; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 26px 0 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(27,36,48,0.5);
+  }
+
+  footer a { color: rgba(27,36,48,0.5); }
+  footer a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-custom py-3">
+  <div class="container">
+    <a class="navbar-brand display-font fs-5" href="#top">Ismail <span>Abbas</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-md-center gap-md-4 gap-2 py-3 py-md-0">
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="btn btn-teal" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-section" id="top">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7">
+        <div class="eyebrow mono-font mb-3">Available for freelance work</div>
+        <h1 class="hero-title mb-3">Hi, I'm Ismail Abbas — <em style="color: red;">Nesiab Tech</em>. I design clean, responsive websites.</h1>
+        <p class="about-text mb-4">I build fast, mobile-friendly landing pages and portfolio sites for small businesses, creators, and individuals — anywhere in the world.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn-teal" href="#projects">View my work →</a>
+          <a class="btn-outline-teal" href="https://wa.me/2348123317162" target="_blank" rel="noopener">Message on WhatsApp</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-avatar display-font"> <img src="nt.jpeg" alt="Ismail Abbas" class="w-100 h-100" style="object-fit:cover; border-radius:50%;">
+</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow mono-font mb-2">01 · About</div>
+    <div class="section-title display-font">A little about me</div>
+    <p class="about-text">I'm a self-taught frontend and backend web designer focused on building clean, responsive websites — landing pages, business sites, and portfolios — using HTML, CSS, and Bootstrap. I care about making sites that load fast, look good on every screen size, and actually help the people who own them get more customers. I work remotely and I'm open to projects of any size, anywhere.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-eyebrow mono-font mb-2">02 · Skills</div>
+    <div class="section-title display-font mb-4">What I work with</div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-card">
+          <div class="num">01</div>
+          <h3>HTML5</h3>
+          <p>Clean, semantic markup built for accessibility and speed.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-card">
+          <div class="num">02</div>
+          <h3>CSS3</h3>
+          <p>Custom styling, layouts, and responsive design from scratch.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-card">
+          <div class="num">03</div>
+          <h3>Bootstrap 5</h3>
+          <p>Fast, reliable, mobile-first sites clients can trust.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="skill-card">
+          <div class="num">04</div>
+          <h3>Responsive Design</h3>
+          <p>Every site looks right on phone, tablet, and desktop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-eyebrow mono-font mb-2">03 · Projects</div>
+    <div class="section-title display-font mb-4">Selected work</div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="project-card">
+          <div class="project-thumb thumb-1">Amaka's Pot</div>
+          <div class="project-body">
+            <h3>Local Food Business Landing Page</h3>
+            <p>A one-page site for a home-catering business, built to convert visitors into WhatsApp orders.</p>
+            <span class="project-tag">HTML/CSS</span><span class="project-tag">Responsive</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="project-card">
+          <div class="project-thumb thumb-2">Link-in-Bio</div>
+          <div class="project-body">
+            <h3>Personal Link-in-Bio Page</h3>
+            <p>A mobile-first profile page built for social media, connecting followers to contact & work links.</p>
+            <span class="project-tag">Bootstrap 5</span><span class="project-tag">Mobile-first</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="project-card">
+          <div class="project-thumb thumb-3">Your Next Project</div>
+          <div class="project-body">
+            <h3>This Could Be Your Site</h3>
+            <p>Landing pages, portfolios, and business sites — designed and delivered fast.</p>
+            <span class="project-tag">Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-eyebrow mono-font mb-2">04 · Testimonials</div>
+    <div class="section-title display-font mb-4">What people say</div>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Delivered exactly what I asked for, on time and easy to work with."</div>
+          <div class="testimonial-name">City sharwamer</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"My site finally looks good on mobile. Customers actually message me now."</div>
+          <div class="testimonial-name">ROYAL RESTAURANT</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Clear communication throughout, even with a tight deadline."</div>
+          <div class="testimonial-name">Mr. Abel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow mono-font mb-2">05 · Contact</div>
+    <h2 class="display-font">Have a project in mind? Let's build it.</h2>
+    <p>I reply fast on WhatsApp and I'm open to work of any size, from anywhere.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a class="btn-teal" href="https://wa.me/2348123317162" target="_blank" rel="noopener">Message on WhatsApp →</a>
+      <a class="btn-outline-teal" href="mailto:ismailabby5532@gmail.com">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+    <div>Ismail Abbas (Nesiab Tech) · Web Designer</div>
+    <a href="https://wa.me/2348123317162" target="_blank" rel="noopener">08123317162</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
